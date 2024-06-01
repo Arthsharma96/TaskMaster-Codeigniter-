@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2024 at 10:54 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: Jun 01, 2024 at 01:07 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,22 +24,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `items`
+-- Table structure for table `students`
 --
 
-CREATE TABLE `items` (
+CREATE TABLE `students` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text,
-  `price` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fullname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `enrollment_date` date NOT NULL,
+  `enrollment_number` varchar(20) NOT NULL,
+  `course` varchar(100) NOT NULL,
+  `year` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `image_path` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `items`
+-- Dumping data for table `students`
 --
 
-INSERT INTO `items` (`id`, `name`, `description`, `price`) VALUES
-(2, 'Mango', 'King of fruits', '12.00');
+INSERT INTO `students` (`id`, `fullname`, `email`, `date_of_birth`, `gender`, `address`, `phone_number`, `enrollment_date`, `enrollment_number`, `course`, `year`, `status`, `image_path`) VALUES
+(3, 'Arth sharma', 'arth908070@gmail.com', '2024-06-18', 'male', 'PVT', '9589872422', '2024-06-13', '0808CS221040', 'B.tech', '3', 'Senior', NULL),
+(4, 'Arth co', 'sgsdg@gmail.com', '2024-06-18', 'Male', 'xdfghdf', '9589872422', '2024-06-12', '0808CS221040', 'B.tech', '3', 'Senior', NULL),
+(5, 'Arth sharma', 'sgsdg@gmail.com', '2024-06-13', 'Male', 'zdf', '9589872422', '2024-06-12', '0808CS221040', 'B.tech', '3', 'Senior', NULL),
+(6, 'Arth sharma', 'sgsdg@gmail.com', '2024-06-12', 'Male', 'sftwjgjs', '9589872422', '2024-06-18', '0808CS221040', 'B.tech', '3', 'Senior', NULL),
+(7, 'Arth sharma', 'sgsdg@gmail.com', '2024-06-07', 'Male', 'zxdfgjsdrty', '9589872422', '2024-06-17', '0808CS221041', 'B.tech', '3', 'Senior', NULL),
+(8, 'Arth sharma', 'sgsdg@gmail.com', '2024-06-07', 'Male', 'dfgdfh', '9589872422', '2024-06-11', '0808CS221040', 'B.tech', '3', 'Senior', NULL),
+(9, 'Arth sharma', 'heheheheh@gmail.com', '2024-06-05', 'male', 'cfghfdghfr', '9589872422', '2024-06-22', '0808CS221040', 'B.tech', '3', 'Senior', NULL),
+(10, 'Arth sharma', 'arth908070@gmail.com', '2024-06-13', 'Male', 'dfghdfghs', '9589872422', '2024-06-21', '0808CS221040', 'B.tech', '3', 'Senior', NULL),
+(11, 'Astrid semeplas', 'Astrid@gmail.com', '2024-06-13', 'Male', 'xdfbsdfghs', '9589872422', '2024-06-18', '0808CS221040', 'B.tech', '3', 'Senior', NULL);
 
 -- --------------------------------------------------------
 
@@ -52,8 +68,8 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
@@ -69,9 +85,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 --
 
 --
--- Indexes for table `items`
+-- Indexes for table `students`
 --
-ALTER TABLE `items`
+ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -86,10 +102,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `items`
+-- AUTO_INCREMENT for table `students`
 --
-ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
