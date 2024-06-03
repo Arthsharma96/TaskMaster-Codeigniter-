@@ -24,19 +24,34 @@ class Student_model extends CI_Model {
     }
 
     public function update_student($id, $data) {
-        if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-            $upload_path = 'uploads/'; // Define your upload directory
-            $file_name = $_FILES['image']['name'];
-            $file_tmp = $_FILES['image']['tmp_name'];
-            $file_path = $upload_path . $file_name;
+        // Check if an image is being uploaded
+        if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] == 0) {
+            $upload_path = 'uploads/profile_images/'; // Define your upload directory
     
-            move_uploaded_file($file_tmp, $file_path);
+            // Ensure the upload directory exists
+            if (!is_dir($upload_path)) {
+                mkdir($upload_path, 0777, true);
+            }
     
-            $data['image_path'] = $file_path;
+            $file_name = basename($_FILES['profile_image']['name']);
+            $file_tmp = $_FILES['profile_image']['tmp_name'];
+    
+            // Generate a unique file name to avoid overwriting existing files
+            $file_path = $upload_path . time() . '_' . $file_name;
+    
+            if (move_uploaded_file($file_tmp, $file_path)) {
+                // Add the file path to the data array
+                $data['profile_image'] = $file_path;
+            } else {
+                // Handle the error if the file couldn't be moved
+                $data['upload_error'] = 'Failed to move uploaded file.';
+            }
         }
     
+        // Update the student record in the database
         $this->db->where('id', $id);
-        $this->db->update('students', $data);
+        return $this->db->update('students', $data);
     }
+    
 }
 ?>

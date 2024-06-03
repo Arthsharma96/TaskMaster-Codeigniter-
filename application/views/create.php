@@ -67,59 +67,59 @@
 
     <div class="container mt-4">
         <h1>Add New Student</h1>
-        <form method="post" action="<?php echo base_url('students/create'); ?>" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="fullname">Full Name:</label>
-                <input type="text" class="form-control" id="fullname" name="fullname" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="date_of_birth">Date of Birth:</label>
-                <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
-            </div>
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <input type="text" class="form-control" id="gender" name="gender" required>
-            </div>
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="phone_number">Phone Number:</label>
-                <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
-            </div>
-            <div class="form-group">
-                <label for="enrollment_date">Enrollment Date:</label>
-                <input type="date" class="form-control" id="enrollment_date" name="enrollment_date" required>
-            </div>
-            <div class="form-group">
-                <label for="enrollment_number">Enrollment Number:</label>
-                <input type="text" class="form-control" id="enrollment_number" name="enrollment_number" required>
-            </div>
-            <div class="form-group">
-                <label for="course">Course:</label>
-                <input type="text" class="form-control" id="course" name="course" required>
-            </div>
-            <div class="form-group">
-                <label for="year">Year:</label>
-                <input type="text" class="form-control" id="year" name="year" required>
-            </div>
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <input type="text" class="form-control" id="status" name="status" required>
-
-                <div class="form-group">
-        <label for="image">Upload Image:</label>
-        <input type="file" class="form-control-file" id="image" name="image" accept="image/jpeg, image/png, image/gif">
-        <?php echo form_error('image', '<div class="text-danger">', '</div>'); ?>
+        <form method="post" action="<?php echo site_url('students/create'); ?>" enctype="multipart/form-data">
+    <!-- Other form fields -->
+    <div class="form-group">
+        <label for="fullname">Fullname</label>
+        <input type="text" name="fullname" id="fullname" value="<?php echo set_value('fullname'); ?>" class="form-control">
     </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="<?php echo set_value('email'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" name="date_of_birth" id="date_of_birth" value="<?php echo set_value('date_of_birth'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" name="gender" id="gender" value="<?php echo set_value('gender'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" value="<?php echo set_value('address'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="phone_number">Phone Number</label>
+        <input type="text" name="phone_number" id="phone_number" value="<?php echo set_value('phone_number'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="enrollment_date">Enrollment Date</label>
+        <input type="date" name="enrollment_date" id="enrollment_date" value="<?php echo set_value('enrollment_date'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="enrollment_number">Enrollment Number</label>
+        <input type="text" name="enrollment_number" id="enrollment_number" value="<?php echo set_value('enrollment_number'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="course">Course</label>
+        <input type="text" name="course" id="course" value="<?php echo set_value('course'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" name="year" id="year" value="<?php echo set_value('year'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" name="status" id="status" value="<?php echo set_value('status'); ?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="profile_image">Profile Image</label>
+        <input type="file" name="profile_image" id="profile_image" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
 
-            <button type="submit" class="btn btn-primary">Add Student</button>
-        </form>
     </div>
 
     <!-- Bootstrap JS (optional) -->

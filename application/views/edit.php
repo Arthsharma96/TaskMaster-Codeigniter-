@@ -62,7 +62,7 @@
 <body>
     <div class="container mt-4">
         <h1>Edit Student</h1>
-        <form method="post" action="<?php echo base_url('students/edit/' . $student->id); ?>">
+        <form method="post" action="<?php echo base_url('students/edit/' . $student->id); ?>" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="fullname">Full Name:</label>
                 <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo $student->fullname; ?>" required>

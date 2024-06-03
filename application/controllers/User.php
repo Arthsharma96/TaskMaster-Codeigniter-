@@ -29,7 +29,7 @@ class User extends CI_Controller {
 
             if ($user && password_verify($password, $user->password)) {
                 $this->session->set_userdata('username', $username);
-                redirect('items');
+                redirect('students/index');
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
                 redirect('user/login');
